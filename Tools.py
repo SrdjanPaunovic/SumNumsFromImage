@@ -36,3 +36,11 @@ def getNumsFromImage(img):
 
     #cv2.drawContours(img, valid_contours, -1, (0, 255, 0), 3)
     #cv2.imshow('contur', img)
+
+def getTrainRow(filepath):
+    img = cv2.imread(filepath)
+
+    images = getNumsFromImage(img)
+    length = len(images[0]) * len(images[0])
+    traing_row = np.reshape(images[0], length)
+    return traing_row
